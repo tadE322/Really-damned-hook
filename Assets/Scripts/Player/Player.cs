@@ -9,17 +9,16 @@ public class Player : MonoBehaviour
     [SerializeField] private float _attackRange;
     [SerializeField] private LayerMask _enemy;
     [SerializeField] private int _damage;
+    [SerializeField] private GrapplingRope _grapplingRope;
 
-    public PlayerController controller;
-    public float runSpeed = 40f;
+    [SerializeField] private PlayerController controller;
+    [SerializeField] private float runSpeed = 40f;
 
     float horizontalMove = 0f;
-    bool jump = false;
-
 
     private void Update()
     {
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;   
+        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         if (Input.GetAxisRaw("Horizontal") > 0)
         {
             gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -28,8 +27,8 @@ public class Player : MonoBehaviour
         {
             gameObject.transform.localScale = new Vector3(-1f, 1f, 1f);
         }
-        
-        if(horizontalMove != 0)
+
+        if (horizontalMove != 0 && !_grapplingRope.enabled)
         {
             _anim.SetBool("isRunning", true);
         }
@@ -38,13 +37,7 @@ public class Player : MonoBehaviour
             _anim.SetBool("isRunning", false);
         }
 
-        if (Input.GetButtonDown("Jump"))
-        {
-            _anim.SetBool("isJumping", true);
-            jump = true;
-        }
-
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             _anim.SetTrigger("Attack");
         }
@@ -52,10 +45,9 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate()
     {
-        controller.Move(horizontalMove * Time.fixedDeltaTime, jump);
-        _anim.SetBool("isJumping", false);
-        jump = false;
+        controller.Move(horizontalMove * Time.fixedDeltaTime);
     }
+
 
     public void Attack() // вызывается в анимации
     {

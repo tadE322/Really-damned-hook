@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class EnemyRolling : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private Collider2D defaultCollider;
+    [SerializeField] private Collider2D circleCollider;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private float speedInAttack;
+    [SerializeField] private int damage;
 }

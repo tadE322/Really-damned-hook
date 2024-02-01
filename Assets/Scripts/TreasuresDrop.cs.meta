@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 9633ab069e3f1bc438aa6f73e08268e3
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - silverCoin: {fileID: 1689476826625801925, guid: bae835fd4ed641047916a09cb99bb8d0, type: 3}
+  - goldCoin: {fileID: 8340799345193533531, guid: cc637d75f08a4af48a0d4aa7c3d703f6, type: 3}
+  - diamond: {fileID: 4453175518493273650, guid: 07c53cc0db41c224c9d539b5787a4b26, type: 3}
+  - izumrud: {fileID: 6916312483269415300, guid: a21f807a6d4eeb1409a906fcee98d3f9, type: 3}
+  - rubin: {fileID: 7456126970552737392, guid: 36682653fe965354591d4d0cbba40500, type: 3}
+  - goldenSkull: {fileID: 2269612145674794305, guid: aca6057ae8d862d4bbc5886a58b885cc, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

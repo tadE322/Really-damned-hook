@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class Platforms : MonoBehaviour
 {
-    private Collider2D _collider;
+    [SerializeField] private Collider2D _PlayerCollider;
+
+    private Collider2D _PlatformCollider;
     private bool _playerOnPlatform;
 
     private void Start()
     {
-        _collider = GetComponent<Collider2D>();
+        _PlatformCollider = GetComponent<Collider2D>();
     }
 
     private void Update()
     {
         if (_playerOnPlatform && Input.GetAxisRaw("Vertical") < 0)
         {
-            _collider.enabled = false;
+            Physics2D.IgnoreCollision(_PlatformCollider, _PlayerCollider, true);
             StartCoroutine(EnabledCollider());
         }
     }
@@ -24,7 +26,7 @@ public class Platforms : MonoBehaviour
     private IEnumerator EnabledCollider()
     {
         yield return new WaitForSeconds(0.3f);
-        _collider.enabled = true;
+        Physics2D.IgnoreCollision(_PlatformCollider, _PlayerCollider, false);
     }
 
     private void SetPlayerOnPlatform(Collision2D other, bool value)

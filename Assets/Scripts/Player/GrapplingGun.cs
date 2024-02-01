@@ -1,8 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
-
+using UnityEngine.UI;
 public class GrapplingGun : MonoBehaviour
 {
     [Header("Scripts Ref:")]
@@ -49,17 +48,31 @@ public class GrapplingGun : MonoBehaviour
     [HideInInspector] public Vector2 grapplePoint;
     [HideInInspector] public Vector2 grappleDistanceVector;
 
+
+    [Header("Hook Cooldown:")]
+    [SerializeField] private float time;
+    [SerializeField] private Image _hookCooldownFill;
+
+    private float _timeLeft = 0;
+    private bool _timerOn = true;
+    private bool _canThrowHook = true;
+
     private void Start()
     {
+        _timeLeft = time;
+
         GrappleRope.enabled = false;
         m_SpringJoint2D.enabled = false;
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        Timer();
+
+        if (Input.GetKeyDown(KeyCode.E) && _canThrowHook)
         {
             SetGrapplePoint();
+            _timerOn = true;
         }
         else if (Input.GetKey(KeyCode.E))
         {
@@ -173,6 +186,26 @@ public class GrapplingGun : MonoBehaviour
             }
         }
     }
+
+    private void Timer()
+    {
+        if (_timerOn)
+        {
+            if (_timeLeft < time)
+            {
+                _canThrowHook = false;
+                _timeLeft += Time.deltaTime;
+                _hookCooldownFill.fillAmount = _timeLeft / time;
+            }
+            else if (_timeLeft >= time)
+            {
+                _canThrowHook = true;
+                _timerOn = false;
+                _timeLeft = 0;
+            }
+        }
+    }
+
 
     private void OnDrawGizmosSelected()
     {

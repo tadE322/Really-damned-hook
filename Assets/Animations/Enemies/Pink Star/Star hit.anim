@@ -20,13 +20,13 @@ AnimationClip:
   m_PPtrCurves:
   - serializedVersion: 2
     curve:
-    - time: 0
+    - time: 0.016666668
       value: {fileID: 21300000, guid: b49e48fdf62157d439dd1ef3e08e7b1e, type: 3}
-    - time: 0.083333336
-      value: {fileID: 21300000, guid: 6f3ba98971c0d304eb31bde7c4225ee6, type: 3}
     - time: 0.16666667
-      value: {fileID: 21300000, guid: 06ed9bc76807a764aac59c7fbc9cc340, type: 3}
+      value: {fileID: 21300000, guid: 6f3ba98971c0d304eb31bde7c4225ee6, type: 3}
     - time: 0.25
+      value: {fileID: 21300000, guid: 06ed9bc76807a764aac59c7fbc9cc340, type: 3}
+    - time: 0.33333334
       value: {fileID: 21300000, guid: f718b76ad230f024c94936fef68fe8a6, type: 3}
     attribute: m_Sprite
     path: 
@@ -59,12 +59,12 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.26666668
+    m_StopTime: 0.35000002
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
     m_HasAdditiveReferencePose: 0
-    m_LoopTime: 1
+    m_LoopTime: 0
     m_LoopBlend: 0
     m_LoopBlendOrientation: 0
     m_LoopBlendPositionY: 0
@@ -78,4 +78,18 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: Stop
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.35
+    functionName: Go
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
